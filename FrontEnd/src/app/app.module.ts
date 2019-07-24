@@ -10,18 +10,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { TimeDataComponent } from './time-data/time-data.component';
 import { ReportsComponent } from './reports/reports.component';
 import { HistoricalDataComponent } from './historical-data/historical-data.component';
 import { PredictedDataComponent } from './predicted-data/predicted-data.component';
+import { TimeReportComponent } from './time-report/time-report.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimeDataComponent,
     ReportsComponent,
     HistoricalDataComponent,
-    PredictedDataComponent
+    PredictedDataComponent,
+    TimeReportComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,10 @@ import { PredictedDataComponent } from './predicted-data/predicted-data.componen
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
