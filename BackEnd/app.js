@@ -18,13 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Use the following if you want to split the Front-End from the Back-End App
-//app.use(express.static(path.join(__dirname, 'public')));
-//app.use('/users', usersRouter);
+app.use('/api', indexRouter); // RESTful API
 
-app.use('/api', indexRouter);
-
-// The following 2 lines serve the FrontEnd Application by starting the Node Server
+// The following 2 chunks serve the FrontEnd Application by starting the Node Server
 
 const allowedExt = [
   '.js',
