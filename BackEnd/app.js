@@ -18,6 +18,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use('/api', indexRouter); // RESTful API
 
 // The following 2 chunks serve the FrontEnd Application by starting the Node Server

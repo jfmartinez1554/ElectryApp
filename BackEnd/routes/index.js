@@ -16,6 +16,9 @@ router.put('/task_3', cron.updateTask_3);
 // REST API
 var EstadosMaquinas = require('../API/EstadoMaquinas');
 router.get('/EstadoMaquinas', EstadosMaquinas.getEstadosMaquinas);
-router.get('/EstadoMaquinas/:timestamp', EstadosMaquinas.getEstadosMaquinasByDate)
+router.get('/EstadoMaquinas/:datetime', EstadosMaquinas.getEstadosMaquinasByDate)
 
+// Pupulate database service
+var db_populator = require('../db_populator')
+router.post('/PopulateEstadoMaquinas/:num', db_populator.populateEstadoMaquinas);
 module.exports = router;

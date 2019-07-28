@@ -1,5 +1,17 @@
-<div class="grid-container">
 
+<mat-grid-list cols="5" rowHeight="10vh">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="2"><h2>Obtener reportes de tiempos desde:</h2></mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="Escoja una Fecha" (dateChange)="onDateChange($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="grid-container">
   <mat-grid-list cols="3" rowHeight="250px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
@@ -10,14 +22,18 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item>Details</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
+          <br>
           <div>
             <h3>{{card.value}}</h3>
+          </div>
+          <br>
+          <div>
+            <h2>{{card.percentage}}</h2>
           </div>
         </mat-card-content>
       </mat-card>

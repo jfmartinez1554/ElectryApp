@@ -9,7 +9,7 @@ module.exports = (sequelize, type) => {
       estado: {
         type: type.STRING
       },
-      timestamp: {
+      datetime: {
         type: type.DATE
       }
     }, {

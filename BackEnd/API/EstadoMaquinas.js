@@ -10,9 +10,8 @@ const getEstadosMaquinas = (req, res) => {
 }
 
 const getEstadosMaquinasByDate = (req, res) => {
-    console.log(req.params.timestamp);
-    sequelize.query("SELECT * FROM Public.\"EstadoMaquinas\" WHERE timestamp >= :timestamp",
-        { replacements: { timestamp: '2018-01-01 00:00:00' },
+    sequelize.query("SELECT * FROM Public.\"EstadoMaquinas\" WHERE datetime >= :datetime",
+        { replacements: { datetime: req.params.datetime },
         model: EstadoMaquinas,
         mapToModel: true 
     })
