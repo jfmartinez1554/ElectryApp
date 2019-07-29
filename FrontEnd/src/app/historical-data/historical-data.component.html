@@ -1,1 +1,32 @@
-<p>historical-data works!</p>
+<mat-grid-list cols="5" rowHeight="3:1">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-button mat-raised-button (click)="hidePredicted()"><mat-icon>library_books</mat-icon>Datos Históricos</button>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-button mat-raised-button (click)="hideHistoric()"><mat-icon>timeline</mat-icon>Predicción de Demanda</button>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+    <div style="display: block;">
+        <canvas baseChart width="270" height="90"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+        </canvas>
+    </div>
+
+    <table>
+        <tr>
+            <th *ngFor="let label of lineChartLabels">{{label}}</th>
+        </tr>
+        <tr *ngFor="let d of lineChartData; let i=index" [class]="'line-'+i">
+            <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+        </tr>
+    </table>

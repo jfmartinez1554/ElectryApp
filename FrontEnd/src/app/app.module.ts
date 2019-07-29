@@ -11,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ReportsComponent } from './reports/reports.component';
 import { HistoricalDataComponent } from './historical-data/historical-data.component';
-import { PredictedDataComponent } from './predicted-data/predicted-data.component';
 import { TimeReportComponent } from './time-report/time-report.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -21,13 +20,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportsComponent,
     HistoricalDataComponent,
-    PredictedDataComponent,
     TimeReportComponent
   ],
   imports: [
@@ -46,7 +45,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MatDatepickerModule, MatNativeDateModule,
     MatFormFieldModule, MatInputModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
